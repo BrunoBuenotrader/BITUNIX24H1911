@@ -1,0 +1,8 @@
+{
+  "name": "BITUNIX",
+  "description": "A high-performance charting dashboard for visualizing real-time market data using TradingView widgets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

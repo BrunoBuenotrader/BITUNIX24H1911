@@ -1,0 +1,23 @@
+{
+  "masterPin": "1234",
+  "accounts": [
+    {
+      "id": "acc_master",
+      "name": "Conta Principal (Bruno)",
+      "ownerName": "Bruno",
+      "role": "ADMIN",
+      "apiKey": "cd67680b72a86fc6c3a0ac824ee92ad6",
+      "apiSecret": "e7e5a322dcb71b090a0e1a17f497090a",
+      "accountType": "USDT",
+      "isActive": true,
+      "copyTradingEnabled": true,
+      "riskMode": "FIXED_USD",
+      "riskPercent": 2,
+      "riskFixedUsd": 50,
+      "notifyOnExecution": true,
+      "accessPin": "1234",
+      "createdAt": "2026-11-09T23:55:20.079Z",
+      "updatedAt": "2026-11-16T14:55:14.086Z"
+    }
+  ]
+}

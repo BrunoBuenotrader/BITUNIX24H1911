@@ -1,0 +1,30 @@
+[
+  [
+    "BTCUSDT",
+    {
+      "symbol": "BTCUSDT",
+      "cleanSymbol": "BTC",
+      "positionSide": "SHORT",
+      "entryPrice": 80660.4,
+      "activationPrice": 0,
+      "callbackRate": 1.5,
+      "highestPrice": 80660.4,
+      "lowestPrice": 80588.2,
+      "isActivated": true,
+      "currentStopLoss": 81870.306,
+      "initialStopLoss": 81870.306,
+      "qty": 0.0002,
+      "positionId": "2170373895828322587",
+      "pricePrecision": 4,
+      "strategy": "CONDUCAO",
+      "stopDistance": 1209.906,
+      "maxUnitsReached": 0.06,
+      "conducaoStage": 0,
+      "createdAt": 1789752955067,
+      "lastUpdated": 1789752955933,
+      "missingCycles": 0,
+      "lastNotifiedSLPrice": 81870.306,
+      "lastNotifiedSLTime": 1789752960406
+    }
+  ]
+]

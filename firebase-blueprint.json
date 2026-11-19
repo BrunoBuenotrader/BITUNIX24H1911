@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "SharedSettings": {
+      "title": "SharedSettings",
+      "description": "Shared workspace settings, risk locks, and Bitunix configurations between partners.",
+      "type": "object",
+      "properties": {
+        "accountType": { "type": "string", "enum": ["USDT", "VST"] },
+        "executionMode": { "type": "string", "enum": ["simulation", "api_real"] },
+        "apiKey": { "type": "string" },
+        "apiSecret": { "type": "string" },
+        "activeOperator": { "type": "string" },
+        "maxRiskPerTradeUsd": { "type": "number" },
+        "maxRiskPercent": { "type": "number" },
+        "maxLeverage": { "type": "number" },
+        "requireStopLoss": { "type": "boolean" },
+        "defaultEmergencyStopPercent": { "type": "number" },
+        "dailyLossLimitUsd": { "type": "number" },
+        "dailyLossLimitPercent": { "type": "number" },
+        "autoBreakEvenTarget": { "type": "number" },
+        "isSafetyLocked": { "type": "boolean" },
+        "updatedAt": { "type": "string" },
+        "updatedBy": { "type": "string" }
+      }
+    },
+    "SignalOrder": {
+      "title": "SignalOrder",
+      "description": "Executed or pending signal order synchronized in the cloud.",
+      "type": "object",
+      "properties": {
+        "symbol": { "type": "string" },
+        "apiSymbol": { "type": "string" },
+        "direction": { "type": "string", "enum": ["LONG", "SHORT"] },
+        "orderType": { "type": "string", "enum": ["MARKET", "LIMIT"] },
+        "entryPrice": { "type": "string" },
+        "leverage": { "type": "number" },
+        "margin": { "type": "number" },
+        "positionValue": { "type": "number" },
+        "stopLoss": { "type": "number" },
+        "takeProfits": { "type": "string" },
+        "status": { "type": "string", "enum": ["PENDING", "EXECUTED", "FAILED", "CLOSED"] },
+        "executedAt": { "type": "string" },
+        "operator": { "type": "string" },
+        "orderIdBinX": { "type": "string" },
+        "pnlCash": { "type": "number" },
+        "pnlPercent": { "type": "number" },
+        "mode": { "type": "string", "enum": ["api_real", "simulation"] },
+        "accountType": { "type": "string", "enum": ["USDT", "VST"] }
+      },
+      "required": ["symbol", "direction", "status", "executedAt"]
+    },
+    "ActivityLog": {
+      "title": "ActivityLog",
+      "description": "Audit and operational activity log between partners.",
+      "type": "object",
+      "properties": {
+        "operator": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "type": { "type": "string", "enum": ["info", "success", "error", "warning"] },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["action", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/workspaces/global/settings/{settingId}": {
+      "schema": "SharedSettings",
+      "description": "Global synchronized settings and safety locks"
+    },
+    "/signal_orders/{orderId}": {
+      "schema": "SignalOrder",
+      "description": "Realtime orders shared across operators"
+    },
+    "/activity_logs/{logId}": {
+      "schema": "ActivityLog",
+      "description": "Operational event log"
+    }
+  }
+}

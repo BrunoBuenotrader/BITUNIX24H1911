@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: bitunix-telegram-bot
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: NODE_ENV=production npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BITUNIX_API_KEY
+        sync: false
+      - key: BITUNIX_API_SECRET
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false

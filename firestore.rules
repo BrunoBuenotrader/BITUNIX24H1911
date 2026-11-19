@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Shared workspace settings and safety locks
+    match /workspaces/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Shared signal orders
+    match /signal_orders/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Shared activity logs
+    match /activity_logs/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Distributed Telegram Deduplication and Leader Locks
+    match /telegram_locks/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Fallback default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
